@@ -5,5 +5,5 @@ type Interchange {
 }
 
 type Mutation {
-  createInterchange(question: String!,answer): Interchange
+  createInterchange(question: String!,answer: String!): Interchange
 }
