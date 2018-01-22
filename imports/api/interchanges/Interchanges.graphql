@@ -1,0 +1,9 @@
+type Interchange {
+  _id: String!
+  question: String!
+  answer: String!
+}
+
+type Mutation {
+  createInterchange(question: String!,answer): Interchange
+}
