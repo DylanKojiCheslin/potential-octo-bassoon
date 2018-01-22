@@ -3,8 +3,6 @@ import gql from "graphql-tag";
 import {graphql} from "react-apollo";
 import ResolutionsForm from "./ResolutionsForm";
 
-
-
 const App = ({data}) => {
   if (data.loading) return null;
   return (
@@ -30,7 +28,5 @@ const hiQuery = gql`
     }
   }
 `;
-
-console.log(graphql);
 
 export default graphql(hiQuery)(App);

@@ -36,7 +36,6 @@ render() {
   }
 }
 
-
 export default graphql(createResolution, {
   name: "createResolution"
 })(ResolutionForm);
