@@ -1,5 +1,36 @@
 import React from 'react';
+import gql from "graphql-tag";
+import {graphql} from "react-apollo";
+import ResolutionsForm from "./ResolutionsForm";
 
-const App = () => <h1> Hello </h1>;
 
-export default App;
+
+const App = ({data}) => {
+  if (data.loading) return null;
+  return (
+    <div>
+      <h1>{data.hi}</h1>
+      <ResolutionsForm refetch={data.refetch} />
+      <ul>
+        {data.resolutions.map(resolution => (
+          <li key={resolution._id}>{resolution.name}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+
+const hiQuery = gql`
+  {
+    hi
+    resolutions {
+      _id
+      name
+    }
+  }
+`;
+
+console.log(graphql);
+
+export default graphql(hiQuery)(App);
