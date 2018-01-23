@@ -2,6 +2,7 @@ import React from 'react';
 import gql from "graphql-tag";
 import {graphql} from "react-apollo";
 import ResolutionsForm from "./ResolutionsForm";
+import ResolutionUpdateForm from "./ResolutionUpdateForm";
 
 const App = ({data}) => {
   if (data.loading) return null;
@@ -11,7 +12,7 @@ const App = ({data}) => {
       <ResolutionsForm refetch={data.refetch} />
       <ul>
         {data.resolutions.map(resolution => (
-          <li key={resolution._id}>{resolution.name}</li>
+          <ResolutionUpdateForm key={resolution._id} resolution={resolution} refetch={data.refetch} />
         ))}
       </ul>
     </div>

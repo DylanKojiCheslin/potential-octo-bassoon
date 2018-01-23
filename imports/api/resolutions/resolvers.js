@@ -13,6 +13,15 @@ export default {
         name
       });
       return Resolutions.findOne(resolutionId);
+    },
+    updateResolution(obj, { name, _id }, context) {
+      const resolutionId = Resolutions.update(
+        { _id : _id },
+        {
+          $set: { name : name }
+        }
+      );
+      return Resolutions.findOne(resolutionId);
     }
   }
 };

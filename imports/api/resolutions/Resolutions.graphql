@@ -5,4 +5,5 @@ type Resolution {
 
 type Mutation {
   createResolution(name: String!): Resolution
+  updateResolution(name: String!, _id:String!): Resolution
 }
