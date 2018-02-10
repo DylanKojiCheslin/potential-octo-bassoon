@@ -32,12 +32,12 @@ updateForm = (event) => {
 
 render() {
     return (
-      <li> {this.props.resolution.name} {this.props.resolution._id}
+      <div> {this.props.resolution.name} {this.props.resolution._id}
       <form onSubmit={this.updateForm}>
           <input type="text" ref={input => (this.name = input)} />
           <button>Update</button>
         </form>
-      </li>
+      </div>
     );
   }
 }

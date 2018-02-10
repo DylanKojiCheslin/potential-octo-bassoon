@@ -22,6 +22,11 @@ export default {
         }
       );
       return Resolutions.findOne(resolutionId);
+    },
+    deleteResolution(obj, { _id }, context){
+      const thing = Resolutions.remove({ _id : _id });
+      console.log(thing);
+      return true;
     }
   }
 };
