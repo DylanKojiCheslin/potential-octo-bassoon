@@ -15,15 +15,21 @@ class ResolutionUpdateForm extends Component {
 updateForm = (event) => {
   event.preventDefault();
   const rezzy = this.props.resolution._id;
+  const name = this.name.value;
   this.props
     .updateResolution({
       variables: {
-        name: this.name.value,
+        name: name,
         _id:rezzy
       }
     })
     .then(({ data }) => {
-      this.props.refetch();
+      // console.log(data);
+      // console.log(this);
+      console.log(this.props);
+      this.setState({name:name});
+
+      // this.props.refetch();
     })
     .catch(error => {
       console.log(error);

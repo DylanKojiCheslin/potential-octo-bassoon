@@ -17,7 +17,6 @@ class ResolutionDeleteForm extends Component {
 constructor(props) {
 
   super(props)
-  console.log(this);
   this.deleteForm = props.deleteForm.bind(this);
 }
 

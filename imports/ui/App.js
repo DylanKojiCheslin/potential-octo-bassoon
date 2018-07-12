@@ -8,7 +8,7 @@ const App = ({data}) => {
   if (data.loading) return null;
   return (
     <div>
-      <h1>{data.hi}</h1>
+      <h1>Whats up</h1>
       <ResolutionsForm refetch={data.refetch} />
       <ul>
         {data.resolutions.map(resolution => (
@@ -20,9 +20,8 @@ const App = ({data}) => {
 };
 
 
-const hiQuery = gql`
+const resolutionsQuery = gql`
   {
-    hi
     resolutions {
       _id
       name
@@ -30,4 +29,4 @@ const hiQuery = gql`
   }
 `;
 
-export default graphql(hiQuery)(App);
+export default graphql(resolutionsQuery)(App);

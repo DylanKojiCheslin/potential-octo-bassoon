@@ -7,26 +7,18 @@ import ResolutionsResolvers from "../../api/resolutions/resolvers";
 
 const testSchema = `
 type Query {
-  hi: String
   resolutions: [Resolution]
 }
 `;
 
 const typeDefs = [testSchema, ResolutionsSchema];
 
-const testResolvers = {
-  Query: {
-    hi() {
-      return "Hello Level Up";
-    }
-  }
-};
-
-const resolvers = merge(testResolvers, ResolutionsResolvers);
+const resolvers = ResolutionsResolvers;
 
 const schema = makeExecutableSchema({
   typeDefs,
-  resolvers
+  resolvers,
+  resolverValidationOptions: { requireResolversForAllFields: false }
 });
 
 createApolloServer({ schema });
